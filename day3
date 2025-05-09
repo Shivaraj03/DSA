@@ -1,0 +1,88 @@
+SWITCH CASE:
+
+*Cases have to be the same type as expression, must be be a constant or literal.
+
+*Duplicate case values are not allowed.
+
+* (break) is used to terminate the sequence.
+
+*(if break) is not used, it will continue to next case.
+
+*(default) will execute when none of the above does.
+
+*(if default) is not at the end , it will put (break) after it.
+
+SYNTAX:
+
+switch(expression){
+    case:
+        Statement;
+        break;
+    default:
+        Statement;
+}
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number between (1-7) : ");
+        int day = sc.nextInt();
+        switch(day){
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            case 7:
+                System.out.println("Sunday");
+                break;
+            default:
+                System.out.println("Invalid number");
+          
+        }
+        sc.close();
+    }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TERINARY OPERATOR / ENHANCED IF ELSE:
+
+SYNTAX:
+
+(condition) ? statement1 : statement2;
+(n ==5) ? System.out.println("Yes") : System.out.println("No");
+
+
+(condition) ? statement1 : statement2;
+String res = (n ==5) ? ("Yes") : ("No");
+System.out.println("res");
+
+
+
+class Main {
+    public static void main(String[] args) {
+        int n = 5;
+        if(n==5){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+        
+            
+        }
+    }
