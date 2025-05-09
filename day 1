@@ -1,0 +1,32 @@
+if(a<b){
+return 0;
+}
+else{
+return a;
+}
+
+CONTROL STATEMENTS : 
+ENTRY CONTROL LOOPS are for and while.
+
+when we know the range we prefer to use FOR loop.
+when we don't know the range we prefer to use WHILE loop.
+
+int arr[] = {1,2,3,4,5};
+    for(int i = 0; i<n; i++){
+        return arr[i];
+}
+    for(start;end;diff){
+    }
+    start;
+    while(end){
+         diff;
+}
+
+class Main{
+    public static void main(String[] args){
+        int num = 5;
+    for(int i = 1; i<=10;i++){
+        System.out.println(num + "*" + i + "=" + (num*i));
+    }
+}
+}
