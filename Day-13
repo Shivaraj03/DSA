@@ -1,0 +1,98 @@
+arr[1,2,3]==>                  str="abc"
+    ||                             ||  
+    \/                             \/  
+
+SUB-ARRAY        SUB-SET       SUB-SEQUENCE       SUB-STRING
+[1,2]             [1,2]           ab                ab
+[2,3]             [1,2]           bc                bc
+(below are not     [1,2]          ac           (not a sub 
+sub array)    ( below are not   (not a            strings) 
+[1,3]             sub set)    sub sequence)         ac         
+[3,2]             [1,2]            ca               ca
+
+
+. Subarray
+Definition: A contiguous (i.e., uninterrupted) part of an array.
+Example:
+Original array: [1, 2, 3, 4]
+Possible subarrays: [1], [2, 3], [1, 2, 3], [4]
+Note: Elements must be adjacent and in order.
+
+2. Subset
+Definition: Any combination of elements from a set or array, not necessarily contiguous.
+Example:
+Original set/array: [1, 2, 3]
+Possible subsets: [], [1], [2], [1, 3], [1, 2, 3]
+Total subsets: For an array of size n, there are 2^n subsets.
+Note: Order doesn't matter unless explicitly stated.
+
+3. Subsequence
+Definition: A sequence that can be derived from another sequence by deleting some or no elements without changing the order.
+Example:
+Original sequence: [1, 2, 3, 4]
+Possible subsequences: [1, 3], [2, 4], [1, 2, 3]
+Note: Elements must be in the same order, but can be non-contiguous.
+
+4. Substring
+Definition: A contiguous part of a string.
+Example:
+Original string: "abcd"
+Possible substrings: "a", "ab", "bcd", "abcd"
+Note: Same rules as subarray, but applies to strings.
+
+ Longest Substring Without Repeating Characters:
+
+Input string = = "abcabcd"
+STEPS:
+Initialize L an R pointers at zeroth index.
+Create a set.
+Check R characters in the set , if we don't have push character into the set and increase R.
+If we have R characters in the set , remove R character an move L.
+Find the length (R-L+1) and all time update MAX.
+
+CODE:
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        HashSet<Character> set = new HashSet();
+        int l = 0, m = 0;
+
+        for(int r = 0; r<s.length();r++){
+            char current = s.charAt(r);
+            while(set.contains(current)){
+                set.remove(s.charAt(l));
+                l++;
+            }
+            set.add(current);
+            m = Math.max(m,r-l+1);
+        }
+        return m;
+    }
+}
+
+1004. Max Consecutive Ones III:
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        HashSet<Character> set = new HashSet();
+        int l = 0, m = 0, count = 0;
+
+        for(int r = 0; r<nums.length;r++){
+            if(nums[r]==0){
+                count++;
+            }
+            while(count>k){
+                if(nums[l]==0){
+                    count--;
+                }
+                l++;
+            }
+            m = Math.max(m,r-l+1);
+        }
+        return m;
+    }
+}
+
+                                        
+
+GRREDY ALGORITM:
+JOB SCHEDULING 
+0-1 FRACTIONAL KNAP SACK
