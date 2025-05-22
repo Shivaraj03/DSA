@@ -1,0 +1,177 @@
+Dutch National Flag algorithm:
+
+Take 3 pointers
+L,M at 0th index and H at (n-1)th index, the elements b/w M and H.
+If arr[M] = 0;  swap b/w arr[M] and arr[L] and increase M & L.
+If arr[M] = 1; just increase arr[M].
+Else swap arr[M] and arr[H] and decrease arr[H].
+
+SUEDO CODE:
+function dutchNationalFlag(arr):
+    L = 0           
+    M = 0           
+    H = length(arr) - 1  
+
+    while M ≤ H:
+        if arr[M] == 0:
+            swap arr[M] and arr[L]
+             M + +
+             L + +
+
+        else if arr[M] == 1:
+             M + +
+
+        else: 
+            swap arr[M] and arr[H]
+             H - -
+CODE:
+public class DutchNationalFlag {
+    public static void dutchNationalFlag(int[] arr) {
+        int L = 0;
+        int M = 0;
+        int H = arr.length - 1;
+
+        while (M <= H) {
+            if (arr[M] == 0) {
+                int temp = arr[L];
+                arr[L] = arr[M];
+                arr[M] = temp;
+                L++;
+                M++;
+            } else if (arr[M] == 1) {
+                M++;
+            } else { 
+                int temp = arr[M];
+                arr[M] = arr[H];
+                arr[H] = temp;
+                H--;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 0, 1, 2, 1, 0};
+        dutchNationalFlag(arr);
+
+        System.out.print("Sorted array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+Output:
+
+Sorted array: 0 0 1 1 2 2 
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Sort Colors
+
+class Solution {
+    public void sortColors(int[] nums) {
+       int A =0;
+       int B =0;
+        int C= nums.length-1;
+        while(B<=C){
+            if(nums[B]==0){
+                int temp = nums[A];
+                nums[A] = nums[B];
+                nums[B] = temp;
+                A++;
+                B++;
+            } else if(nums[B]==1){
+                B++;
+            }else{
+                int temp = nums[B];
+                nums[B] = nums[C];
+                nums[C] = temp;
+                C--;
+            }
+        }
+
+    }
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        int[] nums1 = {2, 0, 2, 1, 1, 0};
+        sol.sortColors(nums1);
+        for (int n : nums1) System.out.print(n + " ");
+        System.out.println();
+
+        int[] nums2 = {2, 0, 1};
+        sol.sortColors(nums2);
+        for (int n : nums2) System.out.print(n + " ");
+        System.out.println();
+}
+    }
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+                    COLLECTIONS FRAME WORK:
+
+LIST                                       
+
+ARRAYLIST:
+LINKEDLIST:
+VECTOR:
+
+SET:
+
+HASH SET:
+LIKED HASH SET:
+TREE SET:
+
+MAP:
+HASH MAP:
+LIKED HASH MAP:
+TREE MAP:
+
+
+List , Set , Map are interfaces.
+Rest of all are classes.
+Interface contains incomplete methods and classes contain complete methods.
+LIST is order which can allow duplicates, SET is unordered it won't accept duplicates.
+MAPS contains key value pairs.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Two Sum
+
+import java.util.HashMap;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            }
+            map.put(nums[i], i);
+        }
+
+       
+        return new int[] {};
+    }
+
+    public static void main(String[] args) {
+        Solution sol = new Solution();
+
+        int[] result = sol.twoSum(new int[] {2, 7, 11, 15}, 9);
+        System.out.println("Output: [" + result[0] + ", " + result[1] + "]");
+    }
+}
+
+Accepted
+Runtime: 0 ms
+Case 1
+Case 2
+Case 3
+Input
+nums =
+[2,7,11,15]
+target =
+9
+Output
+[0,1]
+Expected
+[0,1]
