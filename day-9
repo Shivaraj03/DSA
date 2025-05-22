@@ -1,0 +1,137 @@
+RECURSIONS:
+
+From a given string , remove a character using recursion:
+
+Assume that we starting with two strings INPUT and OUTPUT string.
+At initial OUTPUT string is empty.
+There are few steps , those are 
+*Take the first char from the string and store in a char variable. 
+*Check the variable with the target char.
+*If it matches just return OUTPUT string else append the char to the OUPUT.
+*Next slice the string by 1 char , 
+
+INPUT string :                                         
+"HELLO" => First recursive call                           
+"ELLO"  => Second recursive call
+"LLO"   => Third recursive call
+"LO"    => Fourth recursive call
+"O"     => Fifth recursive call
+" "     => Sixth recursive call
+
+*When ever INPUT string becomes empty, to stop recursion.
+
+import java.util.*;
+class Main{
+  static String skip(String ip){
+    if(ip.isEmpty()){
+      return "";
+    }
+    char ch = ip.charAt(0);
+    if(ch == 'E'){
+      return skip(ip.substring(1));
+    }else{
+      return ch + skip(ip.substring(1));
+    }
+  }
+  public static void main(String [] args){
+    String str = "HELLO";
+    String res = skip(str);
+    System.out.println(res);
+  }
+}
+
+Output:
+
+ HLLO
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+From a given string skip a word and print rest of the characters.
+
+import java.util.*;
+class Main{
+  static String skip(String ip){
+    if(ip.isEmpty()){
+      return "";
+    }
+    if(ip.startsWith("HELLO")){
+      return skip(ip.substring(5));
+    }else{
+      char ch = ip.charAt(0);
+      return ch + skip(ip.substring(1));
+    }
+  }
+  public static void main(String [] args){
+    String str = "HELLO WORLD";
+    String res = skip(str);
+    System.out.println(res);
+  }
+}
+
+Output:
+
+ WORLD
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+From the given string , skip HE not HELLO 
+
+import java.util.*;
+class Main{
+  static String skip(String ip){
+    if(ip.isEmpty()){
+      return "";
+    }
+    if(ip.startsWith("HE") && !ip.startsWith("HELLO")){
+      return skip(ip.substring(2));
+    }else{
+      char ch = ip.charAt(0);
+      return ch + skip(ip.substring(1));
+    }
+  }
+  public static void main(String [] args){
+    String str = "HELLO HE WORLD";
+    String res = skip(str);
+    System.out.println(res);
+  }
+}
+
+Output:
+
+HELLO  WORLD
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TWO POINTER ARRAY:
+
+*Initialize the pointers acc to the question. 
+*If we take 1st pointer at [0] index and 2nd pointer at last index , whenever both pointers crosses each other break the loop in b/w to the relevant topic:
+
+Q1:
+REVERSE AN ARRAY:
+*Start the  i from 0th index and j from n-1th index.
+*Swap the i & j and after swapping increment i++ and decrement j--.
+*Continue the looping until i>j. When it reaches this condition break the loop.
+*Our array is reversed.
+
+import java.util.*;
+class Main{
+  static void swap(int[] arr, int i , int j){
+  int temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
+static void reverse(int[] arr){
+  int i = 0;
+  int j = arr.length-1;
+  while(i<j){
+    swap(arr,i,j);
+    i++;
+    j--;
+  }
+}
+public static void main(String[] args){
+  int [] arr = {1,2,3,4,5};
+  reverse(arr);
+  System.out.println(Arrays.toString(arr));
+}
+}
+
+[5, 4, 3, 2, 1]
