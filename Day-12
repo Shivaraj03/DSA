@@ -1,0 +1,63 @@
+169. Majority Element
+STEPS:
+
+From the given array assume that starting index of the array is my majority element.
+From the starting element compare rest of the elements, if the value is same increase the count.
+Whereas the diff value decrease the count.
+If counter becomes 0 , it states that till now we haven't seen majority element .
+Again select new target element (VERY NEXT ELEMENT).
+At the end of for loop if count>0 ==> it states that there is a majority element.
+Count the no. of times the element is repeated.
+Compare that number to n/2.
+
+CODE:
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        int count = 0;
+        int element = 0;
+        for(int x : nums){
+            if(count == 0){
+                element = x;
+                count = 1;
+            } else{
+                count += element == x ? 1 : -1;
+            }
+        }
+        return element;
+    }
+}
+-----------------------------------------------------------------
+ Longest Consecutive Sequence
+STEPS:
+
+Create a set , run a loop and take the values from the array and push into the set using insert ().
+Start iterating set values , we have to find whether the element is starting or not.
+By decreasing the value, check that value either it is in the set or not.
+If we got the starting value, start comparing the from the value. 
+
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int maxLength = 0;
+        for (int num : set) {
+            if (!set.contains(num - 1)) {
+                int currentNum = num;
+                int currentLength = 1;
+                while (set.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentLength++;
+                }
+
+                maxLength = Math.max(maxLength, currentLength);
+            }
+        }
+
+        return maxLength;
+    }
+}
