@@ -1,0 +1,73 @@
+STRINGS:
+
+*Strings are classes and arrays are objects, so sequence of characters are called strings. Strings are readable. 
+*All the array objects will be created in heap memory, but strings are created inside heap memory
+*Once a string got created , it will be created permanently it means we can't modify the string.
+
+ex:                                                                           
+public class Main {                                             Here strings are created in single pool so it prints TRUE, whereas others are objects so they are created in diff 
+    public static void main(String[] args) {                    Places , so it prints FALSE.
+      String a = "Hello";                                   
+       String b = "Hello";                                      (a==b) compares and gives output are they same or not .
+       System.out.println(a==b);
+       
+       String a = new String ("Hello");
+       String b = new String ("Hello");
+       System.out.println(a==b);
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {                   
+      String a = "Hello";
+       String b = "Hello";                                         (a.equals(b)) ==> we use it for comparing objects.
+       System.out.println(a==b);
+       
+       String a = new String ("Hello");
+       String b = new String ("Hello");
+       System.out.println(a.equals(b));
+
+
+To get array length we use arr.length , to get string length we use str.length()
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+REVERSE A STRING 
+
+class Solution {
+    public static void swap(char[] n, int i, int j){
+        char temp = n[i];
+        n[i] = n[j];
+        n[j] = temp;
+    }
+
+    public void reverseString(char[] n) {
+        int i = 0;
+        int j = n.length-1;
+        while(i<j){
+        swap(n, i, j);
+        i++;
+        j--;
+        }   
+    }
+}
+Accepted
+Runtime: 0 ms
+Case 1
+Case 2
+Input
+s =
+["h","e","l","l","o"]
+Output
+["o","l","l","e","h"]
+Expected
+["o","l","l","e","h"]
+------------------------------------------------------------------------------------------------------------------------------------------
+SUBSTRING:
+
+For a given array we have to print possible arrays and it should be in a sequence but not continuous.
+In an array , if we have 'n' number of elements we get 2`n.
+
+			
+In recursion we have only two possibilities,and in backtracking we have multiple possibilities.
+Most of the problems , we have never reach base case, we  have to print all the base case elements.
