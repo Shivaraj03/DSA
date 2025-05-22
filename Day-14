@@ -1,0 +1,77 @@
+Linear search:
+Whenever array length is smaller or shorter linear search
+  code,program and snippet
+    [5,8,11,14,16]
+    target=14;
+for(--n-1){
+  if(arr[i]==target),  O(n)
+    return;
+}
+return-1;
+
+BINARY SEARCH:
+To reduce time complexity while searching  an element in array we use binary search.
+In binary search the result will be in log(n) complexity.
+STEPS:
+Array should be sorted.
+Initialize L pointer at 0 and R pointer at n-1.
+Run the loop from L to R.
+Break the loop when L & R crosses each other.
+Find the mid value. => L+R/2
+Now compare mid element to the target value.
+If it is equal to mid value , then return the mid value.
+If mid value is smaller to the target , it means the array will not be present in left side of the array.
+So right pointer will remains same we just have to move left ponter to mid+1.
+If mid value > target , we can't get element in right side , left pointer will remains same , So we have to move left ponter mid -1.
+Code :
+while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == target) {
+                return mid; // Target found
+            }
+            if (arr[mid] < target) {
+                left = mid + 1; // Search right half
+            } else {
+                right = mid - 1; 
+            }
+        }
+
+If array is un sorted and target and targert > mid::
+STEPS:
+Initialize L pointer at 0 and R pointer at n-1.
+Run the loop from L to R.
+Find which half of the array is sorted for that 
+if(arr[mid] < arr[l]) =>> it states that right side of the array is sorted and 
+if(target is in bw arr[l] and arr[mid]) ==> it states target present in left side.
+left pointer will reamins same and right pointer will mid-1.
+else target present in right side right pointer will reamins same and left pointer will mid+1.
+if(arr[mid] > arr[l]) =>> left side is sorted and 
+if(target in bw arr[r] and arr[mid]) =>> it states tht the target lies iin right side.
+right pointer will reamins same and left pointer will mid+1.
+else target present in left side right pointer will reamins same and right pointer will mid-1.
+CODE:
+(arr[mid] == target){
+ return mid;
+
+if(arr[mid]<arr[left]){
+
+if(arr[left] < target && target <arr[mid]){M
+ right = mid;
+
+}else{
+
+left= mid;
+}
+}
+if(arr[mid]>target){
+
+if(arr[right]< target && target >arr[mid]){
+
+left= mid+1;
+}else{
+
+right = mid + 1;
+}
+}
+}
