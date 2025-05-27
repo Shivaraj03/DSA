@@ -1,0 +1,125 @@
+DATA STRUCTURES:
+Linked List
+Stack and Queue
+Graphs
+Tress
+Heaps 
+
+ALGORITHMS:
+Sorting
+Searching
+Greedy Algorithm
+Dynamic Programming
+
+TIME COMPLEXITY
+Ignore smaller values
+Focus on worst case
+Ignore constants
+
+TO solve a problem we hav 3 steps:
+Write lines consists of two for loops , to get step 2
+Here, we will run one more for loop, to get step 3
+Here, we will run the code in constant time and if we analyze the code - the Time Complexity will be n*2 for step-1 , n  for step-2, 1 or constant for step-3
+The final Time Complexity will be n*2
+
+Best Case 
+Average Case
+Worst Case
+
+Best case is getting the output in min time
+Worst Case is getting the output in max time -- O()
+Average Case is average of best and worst cases
+
+
+SPACE COMPLEXITY:
+If we use any extra space in writing the code, it leads to space complexity
+
+LINEAR AND NON-LINEAR
+Linked List        Trees
+Stack and Queues   Graphs
+                   Heaps
+Linked List:
+Collection of similar type of data in random allocation
+
+              ------           ------
+                    |  ---    |
+                    | | 1 |   |
+                    |  ---    |
+                    |         |
+                    |         |
+                     ---------
+Single linked List 
+Double Linked List 
+Circle Linked List
+
+Advantage:
+Faster insertions and deletions
+ -------
+| D  !ad| ==> linked list
+ -------
+
+
+In linked list we have to store the data as well as address. 
+We don't have any data type which can store data and address, so we have to create it.
+We create a class and the class name is node.
+Declare two variables
+
+class node{
+     int data;
+     Node next;
+}
+We have two possibilities they are Single node and Last node , and in b/w nodes.
+So if we want to create objects we should call the constructor which we give the output in these two forms.
+
+The node should be created with data and address is null.
+For that we have to create a constructor which helps to create node with data and address null.
+
+
+
+class Main {
+
+    static Node convertArrayToLinkedlist(int[] arr) {
+        if (arr.length == 0) return null;
+
+        Node head = new Node(arr[0]);
+        Node current = head;
+
+        for (int i = 1; i < arr.length; i++) {
+            Node temp = new Node(arr[i]);
+            current.next = temp;
+            current = temp;
+        }
+
+        return head;
+    }
+
+    static void print(Node head) {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + (temp.next != null ? "->" : "->null"));
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        Node head = convertArrayToLinkedlist(arr);
+        print(head);
+    }
+}
+
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+
+    Node(int data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+}
